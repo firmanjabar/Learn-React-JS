@@ -3,7 +3,8 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
-    imgUrl: "https://picsum.photos/200"
+    imgUrl: "https://picsum.photos/200",
+    tags: ["nodeJs", "react", "vue", "mongoDb"]
   };
 
   styles = {
@@ -21,6 +22,13 @@ class Counter extends Component {
           </span>
           <button className="btn btn-dark btn-sm m-1">Increase +</button>
         </div>
+        <ul className="list-group">
+          {this.state.tags.map((tag, index) => (
+            <li className="list-group-item" key={index}>
+              {index + 1}. {tag}
+            </li>
+          ))}
+        </ul>
       </React.Fragment>
     );
   }
