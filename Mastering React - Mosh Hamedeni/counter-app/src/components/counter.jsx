@@ -4,7 +4,7 @@ class Counter extends Component {
   state = {
     count: 0,
     imgUrl: "https://picsum.photos/200",
-    tags: ["nodeJs", "react", "vue", "mongoDb"]
+    tags: ["web", "android", "ios"]
   };
 
   styles = {
@@ -23,14 +23,33 @@ class Counter extends Component {
           <button className="btn btn-dark btn-sm m-1">Increase +</button>
         </div>
         <ul className="list-group">
-          {this.state.tags.map((tag, index) => (
-            <li className="list-group-item" key={index}>
-              {index + 1}. {tag}
+          {this.state.tags.length === 0 ? (
+            <li className="list-group-item list-group-item-info">
+              Please create a new Tag!
             </li>
-          ))}
+          ) : (
+            <li className="list-group-item list-group-item-info">Tag List:</li>
+          )}
+          {this.renderList()}
         </ul>
       </React.Fragment>
     );
+  }
+
+  renderList() {
+    if (this.state.tags.length === 0) {
+      return (
+        <li className="list-group-item list-group-item-danger">
+          There is no item tags
+        </li>
+      );
+    }
+
+    return this.state.tags.map((tag, index) => (
+      <li className="list-group-item" key={index}>
+        {index + 1}. {tag}
+      </li>
+    ));
   }
 
   getBadgeClasses() {
