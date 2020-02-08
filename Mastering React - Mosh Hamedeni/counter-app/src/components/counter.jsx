@@ -12,6 +12,11 @@ class Counter extends Component {
     marginTop: 10
   };
 
+  handleIncrement() {
+    // in here: this is undefined
+    console.log("clicked", this);
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -20,7 +25,12 @@ class Counter extends Component {
           <span style={{ fontSize: 13 }} className={this.getBadgeClasses()}>
             {this.formatCount()}
           </span>
-          <button className="btn btn-dark btn-sm m-1">Increase +</button>
+          <button
+            onClick={this.handleIncrement}
+            className="btn btn-dark btn-sm m-1"
+          >
+            Increase +
+          </button>
         </div>
         <ul className="list-group">
           {this.state.tags.length === 0 ? (
