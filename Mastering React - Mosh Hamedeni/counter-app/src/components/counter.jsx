@@ -13,8 +13,9 @@ class Counter extends Component {
   };
 
   handleIncrement = () => {
-    // with arrow function: this work fine!
-    console.log("clicked", this);
+    this.setState({
+      count: this.state.count + 1
+    });
   };
 
   render() {
