@@ -12,10 +12,10 @@ class Counter extends Component {
     marginTop: 10
   };
 
-  handleIncrement() {
-    // in here: this is undefined
+  handleIncrement = () => {
+    // with arrow function: this work fine!
     console.log("clicked", this);
-  }
+  };
 
   render() {
     return (
