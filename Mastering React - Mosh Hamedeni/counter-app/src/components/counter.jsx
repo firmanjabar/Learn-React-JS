@@ -4,17 +4,18 @@ class Counter extends Component {
   state = {
     count: 0,
     imgUrl: "https://picsum.photos/200",
-    tags: ["web", "android", "ios"]
+    tags: ["web", "android", "ios"],
   };
 
   styles = {
     backgroundColor: "pink",
-    marginTop: 10
+    marginTop: 10,
   };
 
-  handleIncrement = () => {
+  handleIncrement = (id) => {
+    console.log(id);
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
   };
 
@@ -27,7 +28,7 @@ class Counter extends Component {
             {this.formatCount()}
           </span>
           <button
-            onClick={this.handleIncrement}
+            onClick={() => this.handleIncrement({ id: 4 })}
             className="btn btn-dark btn-sm m-1"
           >
             Increase +
