@@ -14,7 +14,6 @@ class Counter extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.children}
         <div>
           <span style={{ fontSize: 13 }} className={this.getBadgeClasses()}>
             {this.formatCount()}
@@ -24,6 +23,12 @@ class Counter extends Component {
             className="btn btn-dark btn-sm m-1"
           >
             Increase +
+          </button>
+          <button
+            onClick={this.props.onDelete}
+            className="btn btn-danger btn-sm"
+          >
+            delete
           </button>
         </div>
       </React.Fragment>

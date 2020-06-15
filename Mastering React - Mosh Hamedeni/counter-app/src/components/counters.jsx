@@ -10,13 +10,21 @@ export default class counters extends Component {
       { id: 4, value: 0 },
     ],
   };
+
+  handleDelete = () => {
+    console.log("event got called.");
+  };
+
   render() {
     return (
       <>
         {this.state.counters.map((counter) => (
-          <Counter key={counter.id} value={counter.value}>
-            <h4>Counter #{counter.id}</h4>
-          </Counter>
+          <Counter
+            onDelete={this.handleDelete}
+            key={counter.id}
+            value={counter.value}
+            id={counter.id}
+          />
         ))}
       </>
     );
