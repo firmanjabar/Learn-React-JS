@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class navbar extends Component {
-  render() {
-    return (
-      <>
-        <nav class="navbar navbar-dark bg-dark">
-          <span class="navbar-brand mb-0 h1">{this.props.totalCounter}</span>
-        </nav>
-      </>
-    );
-  }
-}
+const navbar = (props) => {
+  return (
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1">{props.totalCounter}</span>
+    </nav>
+  );
+};
+
+export default navbar;
