@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   render() {
+    const { onDecrease, onDelete, onIncrement, onReset, counter } = this.props;
+
     return (
       <React.Fragment>
         <div>
@@ -9,25 +11,25 @@ class Counter extends Component {
             {this.formatCount()}
           </span>
           <button
-            onClick={() => this.props.onIncrement(this.props.counter)}
+            onClick={() => onIncrement(counter)}
             className="btn btn-dark btn-sm m-1"
           >
             Increase +
           </button>
           <button
-            onClick={() => this.props.onDecrease(this.props.counter)}
+            onClick={() => onDecrease(counter)}
             className="btn btn-dark btn-sm m-1"
           >
             Decrease -
           </button>
           <button
-            onClick={() => this.props.onReset(this.props.counter)}
+            onClick={() => onReset(counter)}
             className="btn btn-warning btn-sm m-1"
           >
             Reset
           </button>
           <button
-            onClick={() => this.props.onDelete(this.props.counter.id)}
+            onClick={() => onDelete(counter.id)}
             className="btn btn-danger btn-sm m1"
           >
             delete
@@ -39,7 +41,7 @@ class Counter extends Component {
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.props.counter.value === 0 ? "dark" : "success";
+    classes += this.props.counter.value <= 0 ? "dark" : "success";
     return classes;
   }
 

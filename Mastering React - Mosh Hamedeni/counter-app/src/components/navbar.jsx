@@ -1,9 +1,9 @@
 import React from "react";
 
-const navbar = (props) => {
+const navbar = ({ totalCounter }) => {
   return (
     <nav class="navbar navbar-dark bg-dark">
-      <span class="navbar-brand mb-0 h1">{props.totalCounter}</span>
+      <span class="navbar-brand mb-0 h1">{totalCounter}</span>
     </nav>
   );
 };

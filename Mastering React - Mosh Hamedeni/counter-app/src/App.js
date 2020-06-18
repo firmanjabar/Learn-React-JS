@@ -10,6 +10,8 @@ class App extends Component {
       { id: 2, value: 5 },
       { id: 3, value: 2 },
       { id: 4, value: 0 },
+      { id: 5, value: 0 },
+      { id: 6, value: 0 },
     ],
   };
 
@@ -56,7 +58,7 @@ class App extends Component {
     return (
       <>
         <Navbar
-          totalCounter={this.state.counters.filter((c) => c.value !== 0).length}
+          totalCounter={this.state.counters.filter((c) => c.value > 0).length}
         />
         <main className="container">
           <Counters
