@@ -3,6 +3,7 @@ import Counter from "./counter";
 
 export default class counters extends Component {
   render() {
+    console.log("Counters - Redered");
     const {
       counters,
       onDecrease,

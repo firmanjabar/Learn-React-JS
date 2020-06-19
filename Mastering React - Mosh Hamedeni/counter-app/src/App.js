@@ -15,6 +15,18 @@ class App extends Component {
     ],
   };
 
+  constructor() {
+    super();
+    console.log("App - constructor");
+    // cocok digunakan untuk this.state = this.props.something
+    // dengan param props di constructor dan super
+  }
+
+  componentDidMount() {
+    // call Ajax
+    console.log("App - mounted");
+  }
+
   handleIncrement = (counter) => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
@@ -55,6 +67,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("App - Render");
     return (
       <>
         <Navbar
