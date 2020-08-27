@@ -1,10 +1,12 @@
-import React, { Component } from "react";
-import Likes from "./common/likes";
-import { getMovies } from "../services/fakeMovieService";
+import React, { Component } from 'react';
+import Likes from './common/likes';
+import { getMovies } from '../services/fakeMovieService';
+import Pagination from './common/Pagination';
 
 export default class movies extends Component {
   state = {
     movies: getMovies(),
+    pageSize: 4,
   };
 
   handleDelete = (id) => {
@@ -20,14 +22,18 @@ export default class movies extends Component {
     this.setState({ movies });
   };
 
+  handlePageChange = (page) => {
+    return page;
+  };
+
   render() {
     const { length: count } = this.state.movies;
     if (count === 0) return <p>There is no movie in database</p>;
     return (
       <>
         <p>Showing {count} movies in the database</p>
-        <div className="table-responsive">
-          <table className="table table-dark">
+        <div className='table-responsive'>
+          <table className='table table-dark'>
             <thead>
               <tr>
                 <th>Title</th>
@@ -41,6 +47,11 @@ export default class movies extends Component {
             <tbody>{this.renderList()}</tbody>
           </table>
         </div>
+        <Pagination
+          totalMovies={count}
+          pageSize={this.state.pageSize}
+          onPageChange={this.handlePageChange}
+        />
       </>
     );
   }
@@ -56,10 +67,7 @@ export default class movies extends Component {
           <Likes onClick={() => this.handleLikes(movie)} like={movie.like} />
         </td>
         <td>
-          <button
-            onClick={() => this.handleDelete(movie._id)}
-            className="btn btn-danger btn-sm"
-          >
+          <button onClick={() => this.handleDelete(movie._id)} className='btn btn-danger btn-sm'>
             Delete
           </button>
         </td>
